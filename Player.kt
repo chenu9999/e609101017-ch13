@@ -1,3 +1,5 @@
+import java.io.File
+
 class Player(_name: String,
              var healthPoints: Int = 100,
              val isBlessed: Boolean,
@@ -8,7 +10,7 @@ class Player(_name: String,
             field = value.trim()
         }
 
-    val hometown: String
+    val hometown = selectHometown()
 
     init {
         require(healthPoints > 0, {"血量必須大於0"})
@@ -20,6 +22,12 @@ class Player(_name: String,
         isImmortal = false) {
         if (name.toLowerCase() == "kar") healthPoints = 40
     }
+
+    private fun selectHometown() = File("data/towns")
+        .readText()
+        .split("\r\n")
+        .shuffled()
+        .first()
 
     fun auraColor(): String {
         val auraVisible = isBlessed && healthPoints > 50 || isImmortal
