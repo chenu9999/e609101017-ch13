@@ -8,8 +8,12 @@ class Player(_name: String,
             field = value.trim()
         }
 
+    init {
+        require(healthPoints > 0, {"血量必須大於0"})
+        require(name.isNotBlank(), {"必須設定玩家名字"})
+    }
+
     constructor(name: String) : this(name,
-        //healthPoints = 60, 如果主程式沒設定最後結果為60
         isBlessed = true,
         isImmortal = false) {
         if (name.toLowerCase() == "kar") healthPoints = 40
