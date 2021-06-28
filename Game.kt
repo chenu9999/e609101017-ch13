@@ -1,5 +1,8 @@
 fun main() {
     val player = Player("Madrigal")
+    //Player("Madrigal", 60, true, false) -> 使用主建構函數
+    //Player("Madrigal", true, false) -> 使用主建構函數
+    //Player("Madrigal") -> 使用次建構函數
     player.castFireball(5)
 
     //光環

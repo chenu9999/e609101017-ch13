@@ -1,5 +1,5 @@
 class Player(_name: String,
-             var healthPoints: Int,
+             var healthPoints: Int = 100,
              val isBlessed: Boolean,
              private val isImmortal: Boolean) {
     var name = _name
@@ -9,7 +9,7 @@ class Player(_name: String,
         }
 
     constructor(name: String) : this(name,
-        healthPoints = 100,
+        //healthPoints = 60, 如果主程式沒設定最後結果為60
         isBlessed = true,
         isImmortal = false) {
         if (name.toLowerCase() == "kar") healthPoints = 40
