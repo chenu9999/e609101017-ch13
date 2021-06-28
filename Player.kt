@@ -8,6 +8,8 @@ class Player(_name: String,
             field = value.trim()
         }
 
+    val hometown: String
+
     init {
         require(healthPoints > 0, {"血量必須大於0"})
         require(name.isNotBlank(), {"必須設定玩家名字"})
